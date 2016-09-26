@@ -1,0 +1,42 @@
+{
+    "name": "juanintorres/relaxradio-currentsong",
+    "description": "Obtención de la actual canción que suena en el streaming de RelaxRadio",
+    "authors": [
+        {
+            "name": "Juan Torres",
+            "email": "juanin.torres@gmail.om"
+        }
+    ],
+    "keywords": ["laravel", "lumen", "relaxradio"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/lumen-framework": "5.3.*",
+        "vlucas/phpdotenv": "~2.2",
+        "guzzlehttp/guzzle": "6.2.1"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "phpunit/phpunit": "~5.0",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/",
+            "database/"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
