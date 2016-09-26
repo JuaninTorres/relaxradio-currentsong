@@ -26,10 +26,32 @@ class StreamingController extends Controller
 
     public function show()
     {
-        $response = $this->client->request('GET', config('streaming.uri'));
-        $title = $response->getBody()->getContents();
-        $locutor = "RELAX AUTO DJ";
+        $title = $this->getTitle();
+        $locutor = $this->getLocutor();
 
         return compact('title', 'locutor');
+    }
+
+    /**
+     * Obtención del titulo de la canción
+     *
+     * @return string
+     */
+    protected function getTitle()
+    {
+        $response = $this->client->request('GET', config('streaming.uri'));
+        $title = $response->getBody()->getContents();
+
+        return $title;
+    }
+
+    /**
+     * Obtención del nombre del Locutor, que por mientras está fijo
+     *
+     * @return string
+     */
+    protected function getLocutor()
+    {
+        return "RELAX AUTO DJ";
     }
 }
